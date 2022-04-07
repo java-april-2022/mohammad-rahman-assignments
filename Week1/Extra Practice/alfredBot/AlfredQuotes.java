@@ -1,4 +1,6 @@
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.Format;
 
 public class AlfredQuotes {
     
@@ -19,6 +21,19 @@ public class AlfredQuotes {
         return String.format("Good %s, %s. Lovely to see you.", dayPeriod, name);
     }
 
+    public String guestGreeting() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("H"); // this will format the date as a string value of 0-23
+        String theHourString = formatter.format(date); //store the formatted date in a String variable
+        int theHour = Integer.parseInt(theHourString); // convert the String to an int so that the value can be compared in an if conditional below
+        if (theHour < 12) {
+            return "Good Morning!";
+        }
+        if (theHour < 17) {
+            return "Good Afternoon!";
+        }
+        return "Good Evening!";
+    }
     
     public String dateAnnouncement() {
         // YOUR CODE HERE
