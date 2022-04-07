@@ -31,5 +31,16 @@ public class AlfredTest {
         System.out.println(alexisTest);
         System.out.println(alfredTest);
         System.out.println(notRelevantTest);
+
+        //Ninja Bonus version
+
+        // Description: Use method overloading to write another guestGreeting method that returns a greeting including the person's name as well as the day period. Note: It must have the same method name, but will have a different method signature.
+        // Inputs: String name, String dayPeriod  ("morning", "afternoon" or "evening")
+        // Return Type: String
+        // Example Output: "Good evening, Beth Kane. Lovely to see you."
+
+        String ninjaTestGuestGreeting = alfredBot.guestGreeting("Beth Kane", "evening");
+        System.out.println(ninjaTestGuestGreeting);
+
     }
 }
