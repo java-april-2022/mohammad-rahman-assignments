@@ -6,6 +6,14 @@ public class testCalculator {
 		// TODO Auto-generated method stub
 		
 		Calculator c = new Calculator();
+		
+		c.setOperandOne(10.5);
+        c.setOperandTwo(5.2);
+        c.setOperation('+');
+        c.performOperation();
+        c.getResults();
+        
+		
         c.setOperandOne(93.23);
         c.setOperandTwo(28.5);
         c.setOperation('+');
