@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
-	@RequestMapping("/")
+	@RequestMapping("/") //handler method (method level)
 	public String hello() {
 		return "Hello World!";
 	}
