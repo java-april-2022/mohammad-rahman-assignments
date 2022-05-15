@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HumanController {
 
-	@RequestMapping("")
+	@RequestMapping("/")
 	public String giveName(
 			@RequestParam(value="first_name", required=false) String first_name,
 			@RequestParam(value="last_name", required=false) String last_name
