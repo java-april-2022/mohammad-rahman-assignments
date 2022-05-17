@@ -1,4 +1,16 @@
+
+
+/* 
+ * BACKGROUND:
+ * This type of Controller (with @Controller) is used in 
+ * full-stack Java.
+ * The other type of Controller (BooksApi.java) with @RestController is used for back-end Java only.  Front end might be python/js
+
+*/
+
 package com.codingdojo.mvc.controllers;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +36,12 @@ public class BookController {
 		Book book = bookService.findBook(bookId);
 		System.out.println(book);
 		
-		model.addAttribute("book", book);
+		List<Book> books = bookService.allBooks();
 		
-		return "index.jsp";
+		
+		model.addAttribute("book", book);
+		model.addAttribute("books", books);
+		
+		return "show.jsp";
 	}
 }
