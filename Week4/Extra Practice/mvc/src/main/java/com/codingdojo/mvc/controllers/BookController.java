@@ -31,17 +31,18 @@ public class BookController {
 	
 	@GetMapping("/books/{bookId}")
 	public String index(Model model, @PathVariable("bookId") Long bookId) {
-		
-		System.out.println(bookId);
 		Book book = bookService.findBook(bookId);
-		System.out.println(book);
-		
 		List<Book> books = bookService.allBooks();
-		
-		
 		model.addAttribute("book", book);
-		model.addAttribute("books", books);
-		
 		return "show.jsp";
 	}
+	    
+    @GetMapping("/books")
+    public String index(Model model) {
+        List<Book> books = bookService.allBooks();
+        model.addAttribute("books", books);
+        return "index.jsp";
+    }
+
+
 }
