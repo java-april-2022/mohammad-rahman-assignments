@@ -17,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.mvc.models.Book;
 import com.codingdojo.mvc.services.BookService;
@@ -43,6 +45,24 @@ public class BookController {
         model.addAttribute("books", books);
         return "index.jsp";
     }
+    
+    @GetMapping("/books/new")
+    public String newBook() {
+    	return "new.jsp";
+    }
+    
+    @PostMapping(value="/books")
+	public String create(
+			@RequestParam("title") String title, 
+			@RequestParam("description") String description, 
+			@RequestParam("language") String language, 
+			@RequestParam("numberOfPages") Integer pages)
+    {
+		Book book = new Book(title, description, language, pages);
+		bookService.createBook(book);
+		
+		return "redirect:/books";
+	}
 
 
 }
