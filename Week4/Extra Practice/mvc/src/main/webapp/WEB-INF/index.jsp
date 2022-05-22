@@ -27,6 +27,14 @@
 				<td><a href="/books/${book.id}"><c:out value="${book.title}"></c:out></a></td>
 				<td><c:out value="${book.language}"></c:out></td>
 				<td><c:out value="${book.numberOfPages}"></c:out></td>
+				
+				<td class="text-justified">
+					<a href="/books/${book.id}/edit">edit</a>	
+					<form action="/books/${book.id}" method="post">
+	    				<input type="hidden" name="_method" value="delete">
+	    				<input type="submit" value="Delete">
+					</form>
+				</td>
 			</tr>	
 		</c:forEach>
     </tbody>
